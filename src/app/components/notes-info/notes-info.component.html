@@ -1,0 +1,16 @@
+<body>
+<form class="decor" [formGroup]="form">
+  <div class="form-left-decoration"></div>
+  <div class="form-right-decoration"></div>
+  <div class="circle"></div>
+  <div class="form-inner">
+    <h3>{{id ? 'Edit' : 'Add new'}} </h3>
+    <input type="text" formControlName="description" placeholder="title">
+    <input type="text" formControlName="title" placeholder="Subtitle">
+    <textarea placeholder="Description" formControlName="subtitle" rows="3"></textarea>
+    <button mat-button color="warn" (click)="confirm()" [disabled]="!form.valid">{{id? 'Edit' : 'Add new'}} </button>
+    <button mat-button color="warn" (click)="delNote(id)">Delete</button>
+    <button mat-button color="warn" (click)="goMainPage()">Go main page</button>
+  </div>
+</form>
+</body>

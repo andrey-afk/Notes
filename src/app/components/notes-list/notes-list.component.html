@@ -1,0 +1,24 @@
+<h1 mat-button class="mat-background-warn" [routerLink]="['/add']">
+  <button mat-button color="warn">ADD NEW NOTES</button>
+</h1>
+
+<div class="container">
+     <mat-card *ngFor="let notes of notes" >
+      <mat-card-title>{{notes.title}}</mat-card-title>
+      <mat-card-subtitle>{{notes.subtitle}}</mat-card-subtitle>
+      <mat-card-content>{{notes.description}}</mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="accent" [routerLink]="'edit/' + notes.id">Edit</button>
+        <button mat-button color="warn" (click)="deleteNote(notes.id)">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <ng-container *ngIf="notes.length === 0">
+      <h1>Notes list empty</h1>
+    </ng-container>
+</div>
+
+
+
+
+<router-outlet></router-outlet>
